@@ -1,0 +1,237 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-05-12T16:58:29.028Z",
+    "end": "2023-05-12T16:58:35.166Z",
+    "duration": 6138,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "755a7cdc-9591-4009-a7c7-81b40626ef64",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "26395ee2-54ff-401c-a7db-8bad3e988a9f",
+          "title": "GET requests",
+          "fullFile": "/Users/rafael.talero/Documents/API Testing/test/Example.js",
+          "file": "/test/Example.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should get the list of all the users",
+              "fullTitle": "GET requests should get the list of all the users",
+              "timedOut": false,
+              "duration": 708,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(process.env.URL)\n.get(\"/api/users?page=2\")\n.end(function(err, res) {\n    expect(res).to.have.status(200,\"Status code different from 200\");\n    expect(res.body.data).to.be.an('array');\n    expect(res.body.page).to.be.equal(2);\n    expect(res.body.lenght).to.be.not.null;\n    done();  \n});",
+              "err": {},
+              "uuid": "9454ea31-3ab9-4dbb-b30e-0ffc877a0dcc",
+              "parentUUID": "26395ee2-54ff-401c-a7db-8bad3e988a9f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should get the info of a single user",
+              "fullTitle": "GET requests should get the info of a single user",
+              "timedOut": false,
+              "duration": 371,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(process.env.URL)\n.get(\"/api/users/2\")\n.end(function(err, res) {\n    expect(res).to.have.status(200,\"Status code different from 200\");\n    expect(res.body.lenght).to.be.not.null;\n    done();  \n});",
+              "err": {},
+              "uuid": "16cd832e-cf4b-40d1-a85c-b9c30fe528d2",
+              "parentUUID": "26395ee2-54ff-401c-a7db-8bad3e988a9f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "verify if user was not found",
+              "fullTitle": "GET requests verify if user was not found",
+              "timedOut": false,
+              "duration": 557,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(process.env.URL)\n.get(\"/api/users/23\")\n.end(function(err, res) {\n    expect(res).to.have.status(404);\n    expect(res.body).to.be.empty;\n    done();  \n});",
+              "err": {},
+              "uuid": "bd7927b5-0752-4c3f-8be2-555eab9e5220",
+              "parentUUID": "26395ee2-54ff-401c-a7db-8bad3e988a9f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "verify all the color are displayed",
+              "fullTitle": "GET requests verify all the color are displayed",
+              "timedOut": false,
+              "duration": 367,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "chai.request(process.env.URL)\n.get(\"/api/unknown\")\n.end(function(err, res) {\n    expect(res).to.have.status(200);\n    assert.lengthOf(res.body.data, 6);\n    done();  \n});",
+              "err": {},
+              "uuid": "3b12611a-2b75-40f8-b711-4c99cce20817",
+              "parentUUID": "26395ee2-54ff-401c-a7db-8bad3e988a9f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9454ea31-3ab9-4dbb-b30e-0ffc877a0dcc",
+            "16cd832e-cf4b-40d1-a85c-b9c30fe528d2",
+            "bd7927b5-0752-4c3f-8be2-555eab9e5220",
+            "3b12611a-2b75-40f8-b711-4c99cce20817"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2003,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "77323000-2306-45e3-97c1-dd4faef8dd16",
+          "title": "POST requests",
+          "fullFile": "/Users/rafael.talero/Documents/API Testing/test/Example.js",
+          "file": "/test/Example.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create a single user",
+              "fullTitle": "POST requests Create a single user",
+              "timedOut": false,
+              "duration": 571,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const name_ = 'John';\nconst job_ = 'Automation';\nchai.request(process.env.URL)\n.post(\"/api/users\")\n.send({\n    name: name_, job: job_\n})\n.end(function(err, res){\n    expect(res).to.has.status(201);\n    expect(res.body.name).to.equal(name_);\n    expect(res.body.job).to.equal(job_);\n    assert.isString(res.body.id);\n    assert.match(res.body.id, /^[0-9]+$/);\n    assert.isNotEmpty(res.body.createdAt);\n    done();\n});",
+              "err": {},
+              "uuid": "14b2d92f-f88c-4650-99f2-51f7ccd25e16",
+              "parentUUID": "77323000-2306-45e3-97c1-dd4faef8dd16",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "14b2d92f-f88c-4650-99f2-51f7ccd25e16"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 571,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f0847ea1-3aa1-4d4d-8f6a-c3d3953d051d",
+          "title": "GET requests",
+          "fullFile": "/Users/rafael.talero/Documents/API Testing/test/Example.js",
+          "file": "/test/Example.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Delayed call",
+              "fullTitle": "GET requests Delayed call",
+              "timedOut": false,
+              "duration": 3556,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "this.timeout(6000);\n  return new Promise(function(resolve, reject) {\n    chai.request(process.env.URL)\n      .get(process.env.API_PATH)\n      .end(function(err, res){\n        if (res.status === 200) {\n            expect(res.body.data).to.be.an('array');\n            expect(res.body.page).to.be.equal(1);\n          resolve();\n        } else {\n          reject(new Error(\"Not getting 200 API response\"));\n        }\n      });\n  });",
+              "err": {},
+              "uuid": "d88cce2d-a537-4646-8d71-745a4e27ebc1",
+              "parentUUID": "f0847ea1-3aa1-4d4d-8f6a-c3d3953d051d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d88cce2d-a537-4646-8d71-745a4e27ebc1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3556,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
