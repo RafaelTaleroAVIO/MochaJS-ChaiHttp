@@ -1,0 +1,19 @@
+{
+  "name": "api-testing",
+  "version": "1.0.0",
+  "description": "API Testing",
+  "main": "Example.js",
+  "scripts": {
+    "test": "mocha test/**/*.js --reporter mochawesome --reporter-options reportDir=mochawesome-report"
+  },
+  "author": "Rafael Talero",
+  "license": "ISC",
+  "devDependencies": {
+    "chai-http": "^4.3.0",
+    "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
